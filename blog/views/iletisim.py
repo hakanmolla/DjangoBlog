@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 
 def iletisim(request):
-    return HttpResponse('<h1>Merhabalar</h1>')
+    context={
+        'isim':'hakan Mollaahmetoğlu_iletisim Sayfasındasınız'
+    }
+    return render(request,'pages/iletisim.html', context)
