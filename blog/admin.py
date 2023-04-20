@@ -6,29 +6,28 @@ from blog.models import IletisimModel
 
 admin.site.register(KategoriModel)
 
+
+# iletisim admin panel
+@admin.register(IletisimModel)
 class IletisimAdmin(admin.ModelAdmin):
     search_fields=('email',)
     list_display=(
         'email','olusturma_tarihi',
     )
-admin.site.register(IletisimModel,IletisimAdmin)
-
 
 
 # Yorum admin panel
+@admin.register(YorumModel)
 class YorumAdmin(admin.ModelAdmin):
     search_fields=('yazan__username',)
     list_display=(
         'yazan','olusturma_tarihi','duzenleme_tarihi',
     )
-admin.site.register(YorumModel,YorumAdmin)
-
 
 # yazılar admin panel 
+@admin.register(YazilarModel)
 class YazilarAdmin(admin.ModelAdmin):
     search_fields=('baslik','icerik')
     list_display=(
         'baslik','olusturma_tarihi','duzenleme_tarihi',
     )
-admin.site.register(YazilarModel,YazilarAdmin)
-
