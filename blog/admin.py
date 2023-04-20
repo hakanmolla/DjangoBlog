@@ -19,7 +19,7 @@ admin.site.register(IletisimModel,IletisimAdmin)
 class YorumAdmin(admin.ModelAdmin):
     search_fields=('yazan__username',)
     list_display=(
-        'yazan','olusturma_tarihi','guncelleme_tarihi',
+        'yazan','olusturma_tarihi','duzenleme_tarihi',
     )
 admin.site.register(YorumModel,YorumAdmin)
 
