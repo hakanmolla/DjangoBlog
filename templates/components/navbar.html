@@ -1,7 +1,10 @@
+   
+{% load kategori_list %}
+{% kategori_list as kategoriler %}
    <!-- Navigation -->
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Admin Blog</a>
+        <a class="navbar-brand" href="{% url 'anasayfa' %}">Home Page</a>
     </div>
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,7 +15,10 @@
     </button>
 
     <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+         {% for kategori in kategoriler %}
+        <li><a href="#"><i class="fa fa-home fa-fw"></i> {{kategori.isim}}</a></li>
+        {% endfor %}
+        
     </ul>
 
     <ul class="nav navbar-right navbar-top-links">

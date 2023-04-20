@@ -7,9 +7,22 @@
 
 
 <h1> Blank Page İletisim Molla </h1>
+{{isim | title }}
+<br>
+<hr>
+{{isim | truncatechars:6 }}
+<br>
+<hr>
 
 
 
+{% if sayi == 5 %}
+    sayi 5'tir
+{% else %}
+    sayi 5 değildir.
+    
+{% endif %}
+    
 
 
 {% endblock content %}
