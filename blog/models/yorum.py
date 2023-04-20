@@ -4,7 +4,7 @@ from blog.models import YazilarModel
 
 
 class YorumModel(models.Model):
-    yazan = models.ForeignKey(User, on_delete=models.CASCADE, related_name='yorum')
+    yazan = models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yorum')
     yazi = models.ForeignKey(YazilarModel, on_delete=models.CASCADE, related_name='yorumlar')
     yorum = models.TextField(null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
