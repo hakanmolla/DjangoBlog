@@ -5,11 +5,83 @@
 
  {% block content %}
  
+ <br><br>
  
- <h1> Blank Page Molla </h1>
- 
- 
- 
- 
+ {% for  yazi in yazilar  %}
+ <div class="container-fluid">
+    <div class="row">
+ <div class="col-lg-4 w-50 h-50 d-inline-block  " >
+    <div class="panel panel-default p-2" >
+        <div class="panel-heading">
+           {{yazi.baslik}} 
+        </div>
+        <div class="text-center " style=" margin-top: 2rem;">
+            
+        <img src="{{yazi.resim.url}}" style="width: 25rem; height: 18rem; border-radius: 10px;" class="card-img mt-3 p-2" alt="...">
+        </div>
+        <div class="panel-body" style=" height: 250px;">
+            <h1>
+                <small>{{yazi.icerik|safe|truncatechars_html:250}} </small>
+            </h1>
+            <p><small class="text-center">Önce Paylaşıldı = {{ yazi.olusturma_tarihi|timesince }}</small></p>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+                  
+ {%empty%}
+ <p>Hiç yazı örneği bulunamadı</p>
+{% endfor %}
+</div>
+</div>
+
+<div class="container-fluid ">
+    <div class="row col-md-4  navbar-text navbar-right" >
+        
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if yazilar.has_previous %}
+        <li class=''>
+            <a href="?sayfa={{yazilar.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;Önceki</span>
+            </a>
+          </li>
+        {% else %}
+        <li class='disabled'>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+
+        {% endif %}
+     
+      <li><a href="#">{{yazilar.number}}</a></li>
+      
+
+      {% if yazilar.has_next %}
+      <li >
+        <a href="?sayfa={{yazilar.next_page_number}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      
+      <li class=''>
+        <a href="?sayfa={{yazilar.paginator.num_page}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;Son</span>
+        </a>
+      </li>
+
+      {% endif %}
+
+
+
+
+
+     
+    </ul>
+  </nav>
+</div>
+</div>
  
  {% endblock content %}
