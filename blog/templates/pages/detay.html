@@ -1,0 +1,96 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} {{Yazi}} {% endblock title %}
+
+
+{% block content %}
+
+<br><br>
+
+
+<div class="container-fluid">
+   <div class="row">
+<div class="col-lg-12   " >
+   <div class="panel panel-default p-2" >
+       <div class="panel-heading ">
+        <p class="text-center"> {{yazi.baslik}}  
+        <small class="navbar-text navbar-right">Önce Paylaşıldı = {{ yazi.olusturma_tarihi|timesince }}</small>
+    </p> </div>
+       
+       <div class="text-center " style=" margin-top: 2rem;">
+           
+       <img src="{{yazi.resim.url}}" style="width: 25rem; height: 18rem; border-radius: 10px;" class="card-img mt-3 p-2" alt="...">
+       </div>
+       <div class="panel-body text-center" style=" ">
+           <h1>
+               <small>{{yazi.icerik|safe}} </small>
+           </h1>
+           
+       </div>
+       <!-- /.panel-body -->
+   </div>
+   <!-- /.panel -->
+</div>
+
+</div>
+</div>
+
+
+
+<hr>
+<div class="row">
+    <div class="col-lg-12">
+        
+        <!-- /.panel -->
+     
+        <!-- /.panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading text-center ">
+                <i class="fa fa-comment-o "></i> Yorumlar
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <ul class="timeline">
+                        {% for yorum in yorumlar %}
+                            {% if forloop.counter|divisibleby:2 %} 
+                                <li class="timeline-inverted">
+                            {% else %}
+                                <li >
+                            {% endif %}  
+                                    <div class="timeline-badge ">
+                                        {% if yorum.yazan.avatar %} 
+                                        <img style="width: 5rem; height: 5rem;"src="{{ yorum.yazan.avatar.url }}" alt="..." class="img-circle">
+                                        {% else %}
+                                        <img style="width: 5rem; height: 5rem; "src="{% static 'img/no-avatar.jpg'%}" alt="..." class="img-circle">
+                                        {% endif %}
+                                        
+                                    </div>
+                                    {{ yorum.yazan.user.avatar.url }}
+                                    <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                    <h4 class="timeline-title">{{yorum.yazan.username}}</h4>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>
+                                        {{ yorum.olusturma_tarihi|timesince }} </small></p>
+                                    </div>
+                                    <div class="timeline-body"><p>{{yorum.yorum}}</p></div>
+                                    </div>
+                                </li>
+                                {%empty%}
+                                <p>Bu yazı için hiç yorum yapılmamış</p>
+                                {% endfor %}
+                </ul>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-8 -->
+
+    <!-- /.col-lg-4 -->
+</div>
+
+
+
+
+{% endblock content %}
