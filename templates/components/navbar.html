@@ -16,7 +16,7 @@
 
     <ul class="nav navbar-nav navbar-left navbar-top-links">
          {% for kategori in kategoriler %}
-        <li><a href="#"><i class="fa fa-home fa-fw"></i> {{kategori.isim}}</a></li>
+        <li><a href="{% url 'kategori' kategoriSlug=kategori.slug %}"><i class="fa fa-home fa-fw"></i> {{kategori.isim}}</a></li>
         {% endfor %}
         
     </ul>
