@@ -17,6 +17,8 @@
             {% if  request.user.is_authenticated %}
             <li>
                 <a href="{% url 'yazilarim' %}"><i class="fa fa-dashboard fa-fw"></i> Yazılarım</a>
+                <a href="{% url 'yazi-ekle' %}"><i class="fa fa-dashboard fa-fw"></i> Yazi Ekle</a>
+                <a href="{% url 'iletisim' %}"><i class="fa fa-dashboard fa-fw"></i> İletisim</a>
             </li>
             
             {% else %}

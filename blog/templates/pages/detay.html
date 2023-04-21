@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block title %} {{Yazi}} {% endblock title %}
 
 
@@ -15,7 +15,21 @@
    <div class="panel panel-default p-2" >
        <div class="panel-heading ">
         <p class="text-center"> {{yazi.baslik}}  
-        <small class="navbar-text navbar-right">Önce Paylaşıldı = {{ yazi.olusturma_tarihi|timesince }}</small>
+        <small class="navbar-text navbar-right">
+            Önce Paylaşıldı = {{ yazi.olusturma_tarihi|timesince }}
+
+
+            {% if request.user == yazi.yazar %}
+            
+        <p>
+            <a href="{% url 'yazi-guncelle' slug=yazi.slug %}" class=" btn btn-warning">Düzenle</a>
+            <a href="{% url 'yazi-sil' slug=yazi.slug %}" class=" btn btn-danger">Sil</a>
+        </p>
+            
+            {% endif %}
+
+
+        </small>
     </p> </div>
        
        <div class="text-center " style=" margin-top: 2rem;">
@@ -49,6 +63,18 @@
             <div class="panel-heading text-center ">
                 <i class="fa fa-comment-o "></i> Yorumlar
             </div>
+            <hr>
+            {% if request.user.is_authenticated %}
+            <form method="POST">
+                {% csrf_token %}
+            {{yorum_ekle_form|crispy}}
+            <input type="submit" value="Yorum Yap" class="btn btn-success">
+            </form>
+            {% else %}
+            <p>Yorum Yapmak için Üyü girişi yapınız</p>
+            {% endif %}
+            
+            <hr>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul class="timeline">
@@ -73,7 +99,14 @@
                                     <p><small class="text-muted"><i class="fa fa-clock-o"></i>
                                         {{ yorum.olusturma_tarihi|timesince }} </small></p>
                                     </div>
-                                    <div class="timeline-body"><p>{{yorum.yorum}}</p></div>
+                                    <div class="timeline-body"><p>{{yorum.yorum}}</p>
+                                    {% if request.user == yorum.yazan or request.user == yazi.yazan %}
+                                    <a href="
+                                    {% url 'yorum-sil' id=yorum.id %}" class="btn btn-danger navbar-right">Yorum Sil</a>
+                                    
+                                    {% endif %}
+                                    
+                                    </div>
                                     </div>
                                 </li>
                                 {%empty%}

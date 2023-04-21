@@ -3,3 +3,7 @@ from .anasayfa import anasayfa
 from .kategori import kategori
 from .yazilar import yazilarim
 from .detay import detay
+from .YaziEkle import YaziEkle
+from .yazi_guncelle import yazi_guncelle
+from .yazi_sil import yazi_sil
+from .yorum_sil import yorum_sil

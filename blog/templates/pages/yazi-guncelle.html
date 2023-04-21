@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block title %} Yazi Güncelle {% endblock title %}
+
+
+{% block content %}
+
+
+
+<h1> Yazı Ekle Page </h1>
+<div class='container'>
+    <div class='row col-8'>
+
+        <form action="" enctype="multipart/form-data" method = "POST" >
+            
+            {% csrf_token %}
+            {{form.media}}
+            {{form|crispy}}
+            <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="Yazı Güncelle"/>
+        </form>
+
+</div>
+</div>
+
+{% endblock content %}
