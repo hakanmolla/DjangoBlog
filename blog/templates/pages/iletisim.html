@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load crispy_forms_tags %}
 
 {% block title %} İletisim {% endblock title %}
 
@@ -6,23 +7,18 @@
 {% block content %}
 
 
-<h1> Blank Page İletisim Molla </h1>
-{{isim | title }}
-<br>
-<hr>
-{{isim | truncatechars:6 }}
-<br>
-<hr>
+<h1> İletisim Page </h1>
+<div class='container'>
+    <div class='row col-8'>
 
+        <form method = "POST" >
+            {{form|crispy}}
+            {% csrf_token %}
+            <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="Gönder"/>
+        </form>
 
-
-{% if sayi == 5 %}
-    sayi 5'tir
-{% else %}
-    sayi 5 değildir.
-    
-{% endif %}
-    
+</div>
+</div>
 
 
 {% endblock content %}
