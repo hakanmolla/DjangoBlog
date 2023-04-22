@@ -1,9 +1,8 @@
-# DjangoBlog
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
 
-# Blog Sistemi
+# Django-Blog Sistemi
 
 Bu, Python-Django kullanılarak geliştirilmiş bir blog sistemi projesidir. Bu projede aşağıdaki özellikler bulunmaktadır:
 
