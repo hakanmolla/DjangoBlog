@@ -19,13 +19,16 @@
                 <a href="{% url 'yazilarim' %}"><i class="fa fa-dashboard fa-fw"></i> Yazılarım</a>
                 <a href="{% url 'yazi-ekle' %}"><i class="fa fa-dashboard fa-fw"></i> Yazi Ekle</a>
                 <a href="{% url 'iletisim' %}"><i class="fa fa-dashboard fa-fw"></i> İletisim</a>
+                <a href="{% url 'sifre-guncelle' %}"><i class="fa fa-dashboard fa-fw"></i> Profil Günceleme</a>
+                <a href="{% url 'kayit' %}"><i class="fa fa-dashboard fa-fw"></i> Yeni Kullanıcı Ekle</a>
                 <a href="{% url 'cikis' %}"><i class="fa fa-dashboard fa-fw"></i> LogOut</a>
+                
                 <a href="{% url 'sifre-degistir' %}"><i class="fa fa-dashboard fa-fw"></i> Şifre Değiştir</a>
             </li>
             
             {% else %}
             
-            <a href="#">Login Formu Gelecek</a>
+            <a href="{% url 'giris' %}"><i class="fa fa-dashboard fa-fw"></i> Giris Yap</a>
             
             {% endif %}
             

@@ -1,13 +1,13 @@
 {% extends 'base.html' %} 
 {% load crispy_forms_tags %}
-{% block title %} Şifre Güncelle {% endblock title %}
+{% block title %} Profil Güncelle {% endblock title %}
 
 
 {% block content %}
 
 
 
-<h1> Şifre Güncelle </h1>
+<h1>Profil Güncelleme Page </h1>
 <div class='container'>
     <div class='row col-8'>
 {% include 'components/messages.html'  %}
@@ -15,7 +15,7 @@
             
             {% csrf_token %}
             {{form|crispy}}
-           <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="Şifre Değiştir"/>
+           <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="Profil Güncelle"/>
           
         </form>
 

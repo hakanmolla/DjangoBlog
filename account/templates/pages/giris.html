@@ -1,21 +1,21 @@
 {% extends 'base.html' %} 
 {% load crispy_forms_tags %}
-{% block title %} Şifre Güncelle {% endblock title %}
+{% block title %}Kullanıcı Giris Page {% endblock title %}
 
 
 {% block content %}
 
 
 
-<h1> Şifre Güncelle </h1>
+<h1>Kullanıcı Girisi Page </h1>
 <div class='container'>
     <div class='row col-8'>
-{% include 'components/messages.html'  %}
+
         <form action="" enctype="multipart/form-data" method = "POST" >
             
             {% csrf_token %}
             {{form|crispy}}
-           <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="Şifre Değiştir"/>
+           <input type="submit" class= 'btn- btn-danger mt-3 mb-3' value="giris"/>
           
         </form>
 
