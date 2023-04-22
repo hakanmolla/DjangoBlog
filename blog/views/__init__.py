@@ -2,7 +2,7 @@ from .iletisim import IletisimFormView
 from .anasayfa import anasayfa
 from .kategori import kategori
 from .yazilar import yazilarim
-from .detay import detay
+from .detay import DetayView
 from .YaziEkle import YaziEkleCreateView
 from .yazi_guncelle import yazi_guncelle
 from .yazi_sil import yazi_sil

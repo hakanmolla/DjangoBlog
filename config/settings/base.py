@@ -125,4 +125,30 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL ='/'
 
 
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+      'basit_ifade': {
+          'format': ' {module} -{process:d}- {thread:d}- {asctime}- {levelname} - {message} -{name}',
+          'style': '{'
+      }  
+    },
+    'handlers':{
+        'console':{
+            'class':'logging.StreamHandler'
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'logs/konu_okuma.log',
+            'formatter': 'basit_ifade',
+        }
+    },
+    
+    'loggers':{
+        'konu_okuma':{
+            'handlers':['console','file'],
+            'level':'INFO',
+        }
+    }
+}
