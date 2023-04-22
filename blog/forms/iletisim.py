@@ -1,6 +1,6 @@
 from django import forms
 from blog.models import IletisimModel
-
+from django.core.mail import send_mail
 
 # class IletisimForm(forms.Form):
 #     email = forms.EmailField(label='E-mail',max_length=100,)
@@ -11,3 +11,5 @@ class IletisimForm(forms.ModelForm):
     class Meta:
         model=IletisimModel
         fields =('isim_soyisim','email','mesaj')
+        
+    
